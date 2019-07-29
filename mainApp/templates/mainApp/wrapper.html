@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Заголовок страницы</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+</head>
+<body>
+
+
+
+
+   <div class="jumbotron">
+       <div class="container">
+           <a href="/"><img src="{% static 'mainApp/image/logo.png' %}" style="width:200px;"></a>
+           <h1>{% include "mainApp/includes/some_html.html" %}</h1>
+           <p>
+               {% block content %}
+                {% endblock %}
+           </p>
+
+        <a href="/" class="btn btn-success btn-lg">Главная</a>
+        <a href="/news" class="btn btn-primary btn-lg">Новости &raquo;</a>
+       <a href="/contact" class="btn btn-info btn-lg">Контакты </a>
+      </div>
+   </div>
+
+  <div class="container">
+    <a rel="fancy" href="{% static 'mainApp/image/audi.png' %}"><img src="{% static 'mainApp/image/audi.png' %}" class="img-thumbnail">
+    </a>
+      <div class="rw-ui-container"></div>
+    <hr>
+
+
+      <div class="">
+          <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://http-ukrbudprom-com-ua.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+
+
+
+    &copy; Все права защищены 2018 - {% now 'Y' %}
+  </div>
+</body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+<script>
+  $(function(){
+       $("a[rel=fancy]").fancybox({'transitionIn': 'none','transitionOut': 'none', 'nextEffect': 'none', 'prevEffect': 'none'});
+  });
+</script>
+
+<script type="text/javascript">(function(d, t, e, m){
+
+    // Async Rating-Widget initialization.
+    window.RW_Async_Init = function(){
+
+        RW.init({
+            huid: "437188",
+            uid: "6a3b6b43481454a9b00fd1066b1070e5",
+            options: { "style": "oxygen" }
+        });
+        RW.render();
+    };
+        // Append Rating-Widget JavaScript library.
+    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+        l = d.location, ck = "Y" + t.getFullYear() +
+        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+    if (d.getElementById(id)) return;
+    rw = d.createElement(e);
+    rw.id = id; rw.async = true; rw.type = "text/javascript";
+    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+    s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));</script>
+<script id="dsq-count-scr" src="//http-ukrbudprom-com-ua.disqus.com/count.js" async></script>
+</html>
